@@ -1,0 +1,45 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+#col1 {
+    background-color: black;
+    margin: 10px 0px 0px 10px;
+    height: 560px;
+    width: 325px;
+    border-radius: 10px;
+}
+
+#image1 {
+    margin: 10px 0px 0px 0px;
+    object-fit: cover;
+}
+
+#head6 {
+    margin: 10px 0px 0px 0px;
+    font-family: 'Roboto', sans-serif;
+}
+
+#para1 {
+    margin: 10px 0px 0px 0px;
+}
+
+#para2 {
+    margin: 10px 0px 0px 0px;
+    font-family: 'Baloo Bhai 2', cursive;
+}
+
+.button1 {
+    margin: 10px 0px 0px 0px;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    color: black;
+}
