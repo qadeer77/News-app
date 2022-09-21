@@ -6,12 +6,10 @@ let entertainment = document.querySelector("#Entertainment");
 let bussines = document.querySelector("#Bussines");
 let health = document.querySelector("#Health");
 let science = document.querySelector("#Science");
-let searchBtn = document.querySelector("#searchBtn");
-
+// let searchBtn = document.querySelector("#searchBtn");
 let newsQuery = document.querySelector("#newsQuery");
 let dataRandering = document.querySelector("#dataRandering");
-// let newsType = document.querySelector("#newsType");
-// let newsDetails = document.querySelector("#newsDetails");
+let form = document.querySelector("form");
 
 // Array
 var newsDataArray = [];
@@ -26,7 +24,22 @@ const tecnologyNews = "https://newsapi.org/v2/top-headlines?country=us&category=
 const entertainmentNews = "https://newsapi.org/v2/top-headlines?country=us&category=entertainment&apiKey="
 const helathNews = "https://newsapi.org/v2/top-headlines?country=us&category=health&apiKey="
 const scienceNews = "https://newsapi.org/v2/top-headlines?country=us&category=science&apiKey="
-const serachNews = "https://newsapi.org/v2/everything?q="
+const serachNews = "https://newsapi.org/v2/everything?q=bitcoin&apiKey="
+
+
+// Events
+
+form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    console.log(newsQuery.value)
+    newsQuery.value = "";
+})
+
+
+
+window.addEventListener("load", () => {
+    fetchHeadLinesNews();
+})
 
 
 general.addEventListener("click", () => {
@@ -57,9 +70,9 @@ science.addEventListener("click", () => {
     fetchScienceNews();
 })
 
-searchBtn.addEventListener("click", () => {
-    // fetchSerachNews();
-})
+// searchBtn.addEventListener("click", () => {
+//     fetchSerachNews();
+// })
 
 
 const fetchGeneralNews = async () => {
@@ -68,7 +81,7 @@ const fetchGeneralNews = async () => {
     // if (response.status >= 200 && response.status < 300) {
     const myJson = await response.json();
     newsDataArray = myJson.articles;
-    console.log(newsDataArray)
+    // console.log(newsDataArray)
     // } else {
 
     // }
@@ -81,7 +94,7 @@ const fetchSportNews = async () => {
     // if (response.status >= 200 && response.status < 300) {
     const myJson = await response.json();
     newsDataArray = myJson.articles;
-    console.log(newsDataArray)
+    // console.log(newsDataArray)
     // } else {
 
     // }
@@ -94,7 +107,7 @@ const fetchtecnologyNews = async () => {
     // if (response.status >= 200 && response.status < 300) {
     const myJson = await response.json();
     newsDataArray = myJson.articles;
-    console.log(newsDataArray)
+    // console.log(newsDataArray)
     // } else {
 
     // }
@@ -107,7 +120,7 @@ const fetchEntertainmentNews = async () => {
     // if (response.status >= 200 && response.status < 300) {
     const myJson = await response.json();
     newsDataArray = myJson.articles;
-    console.log(newsDataArray)
+    // console.log(newsDataArray)
     // } else {
 
     // }
@@ -120,7 +133,7 @@ const fetchBussinessNews = async () => {
     // if (response.status >= 200 && response.status < 300) {
     const myJson = await response.json();
     newsDataArray = myJson.articles;
-    console.log(newsDataArray)
+    // console.log(newsDataArray)
     // } else {
 
     // }
@@ -133,7 +146,7 @@ const fetchHealthNews = async () => {
     // if (response.status >= 200 && response.status < 300) {
     const myJson = await response.json();
     newsDataArray = myJson.articles;
-    console.log(newsDataArray)
+    // console.log(newsDataArray)
     // } else {
 
     // }
@@ -146,19 +159,48 @@ const fetchScienceNews = async () => {
     // if (response.status >= 200 && response.status < 300) {
     const myJson = await response.json();
     newsDataArray = myJson.articles;
-    console.log(newsDataArray)
+    // console.log(newsDataArray)
     // } else {
 
     // }
     newsDispaly();
 }
 
+const fetchHeadLinesNews = async () => {
+    const response = await fetch(headlineNews + apiKey);
+    newsDataArray = [];
+    // if (response.status >= 200 && response.status < 300) {
+    const myJson = await response.json();
+    newsDataArray = myJson.articles;
+    // console.log(newsDataArray)
+    // } else {
+
+    // }
+    newsDispaly();
+}
+
+const fetchSerachNews = async () => {
+    const response = await fetch(serachNews + apiKey);
+    newsDataArray = [];
+    // if (response.status >= 200 && response.status < 300) {
+    const myJson = await response.json();
+    newsDataArray = myJson.articles;
+    // console.log(newsDataArray)
+    // } else {
+
+    // }
+    // newsDispaly();
+}
+
+console.log(fetchSerachNews())
+
+
 function newsDispaly() {
+    let html = `<div class="row" id="row1">`
 
     newsDataArray.forEach(element => {
-        console.log(element)
-        dataRandering.innerHTML = `
-        <div class="row" id="row1">
+        // console.log(element)
+        html += `
         <div class="col-3" id="col1">
             <div>
             <img id="image1" src="${element["urlToImage"]}" height="300px" width="300px" >
@@ -173,20 +215,11 @@ function newsDispaly() {
             <p id="para2">${element["description"]}</p>            
           </div>
          <div>
-         <button type="button" class="btn btn-primary button1"><a href="${element["url"]}" target="_blank">Read More</button>
+            <a href="${element.url}" target="_blank"><button type="button" class="btn btn-primary">Read More</button></a>
           </div>
         </div>
-          <div class="col-3">
-            
-        </div>
-        <div class="col-3">
-            
-        </div>
-        <div class="col-3">
-        
-        </div>
-    </div>
         `
     })
-}
 
+    dataRandering.innerHTML = html;
+}
