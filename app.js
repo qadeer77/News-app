@@ -1,3 +1,35 @@
+if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function () {
+        navigator.serviceWorker
+            .register("/serviceWorker.js")
+            .then((res) => console.log("service worker registered"))
+            .catch((err) => console.log("service worker not registered", err));
+    });
+}
+
+function showNotification() {
+    Notification.requestPermission((result) => {
+        if (result === "granted") {
+            navigator.serviceWorker.ready.then((registration) => {
+                registration.showNotification("News Notification", {
+                    body: "Notification from News Website",
+                    icon: "./images/logo1.png",
+                    vibrate: [200, 100, 200, 100, 200, 100, 200],
+                    tag: "vibration-sample",
+                });
+            });
+        }
+    });
+}
+
+showNotification();
+
+
+
+
+
+
+
 // variables
 let general = document.querySelector("#General");
 let sport = document.querySelector("#Sport");

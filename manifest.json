@@ -1,0 +1,51 @@
+{
+    "name": "World News App",
+    "short_name": "News App",
+    "start_url": "index.html",
+    "display": "standalone",
+    "background_color": "#fdfdfd",
+    "theme_color": "#db4938",
+    "orientation": "portrait-primary",
+    "icons": [
+        {
+            "src": "/images/logo1.png",
+            "type": "image/png",
+            "sizes": "72x72"
+        },
+        {
+            "src": "/images/logo2.png",
+            "type": "image/png",
+            "sizes": "96x96"
+        },
+        {
+            "src": "/images/logo3.png",
+            "type": "image/png",
+            "sizes": "128x128"
+        },
+        {
+            "src": "/images/logo4.png",
+            "type": "image/png",
+            "sizes": "144x144"
+        },
+        {
+            "src": "/images/logo5.png",
+            "type": "image/png",
+            "sizes": "152x152"
+        },
+        {
+            "src": "/images/logo6.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        },
+        {
+            "src": "/images/logo7.png",
+            "type": "image/png",
+            "sizes": "384x384"
+        },
+        {
+            "src": "/images/logo8.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        }
+    ]
+}
