@@ -6,10 +6,11 @@ let entertainment = document.querySelector("#Entertainment");
 let bussines = document.querySelector("#Bussines");
 let health = document.querySelector("#Health");
 let science = document.querySelector("#Science");
-// let searchBtn = document.querySelector("#searchBtn");
+let searchBtn = document.querySelector("#searchBtn");
 let newsQuery = document.querySelector("#newsQuery");
 let dataRandering = document.querySelector("#dataRandering");
 let form = document.querySelector("form");
+let everything = document.querySelector("#everything");
 
 // Array
 var newsDataArray = [];
@@ -28,15 +29,6 @@ const serachNews = "https://newsapi.org/v2/everything?q=bitcoin&apiKey="
 
 
 // Events
-
-form.addEventListener("submit", (event) => {
-    event.preventDefault();
-    console.log(newsQuery.value)
-    newsQuery.value = "";
-})
-
-
-
 window.addEventListener("load", () => {
     fetchHeadLinesNews();
 })
@@ -70,136 +62,89 @@ science.addEventListener("click", () => {
     fetchScienceNews();
 })
 
-// searchBtn.addEventListener("click", () => {
-//     fetchSerachNews();
-// })
+everything.addEventListener("click", () => {
+    fetchEverythingNews();
+})
+
 
 
 const fetchGeneralNews = async () => {
     const response = await fetch(generalNews + apiKey);
     newsDataArray = [];
-    // if (response.status >= 200 && response.status < 300) {
     const myJson = await response.json();
     newsDataArray = myJson.articles;
-    // console.log(newsDataArray)
-    // } else {
-
-    // }
     newsDispaly();
 }
 
 const fetchSportNews = async () => {
     const response = await fetch(sportNews + apiKey);
     newsDataArray = [];
-    // if (response.status >= 200 && response.status < 300) {
     const myJson = await response.json();
     newsDataArray = myJson.articles;
-    // console.log(newsDataArray)
-    // } else {
-
-    // }
     newsDispaly();
 }
 
 const fetchtecnologyNews = async () => {
     const response = await fetch(tecnologyNews + apiKey);
     newsDataArray = [];
-    // if (response.status >= 200 && response.status < 300) {
     const myJson = await response.json();
     newsDataArray = myJson.articles;
-    // console.log(newsDataArray)
-    // } else {
-
-    // }
     newsDispaly();
 }
 
 const fetchEntertainmentNews = async () => {
     const response = await fetch(entertainmentNews + apiKey);
     newsDataArray = [];
-    // if (response.status >= 200 && response.status < 300) {
     const myJson = await response.json();
     newsDataArray = myJson.articles;
-    // console.log(newsDataArray)
-    // } else {
-
-    // }
     newsDispaly();
 }
 
 const fetchBussinessNews = async () => {
     const response = await fetch(bussinesNews + apiKey);
     newsDataArray = [];
-    // if (response.status >= 200 && response.status < 300) {
     const myJson = await response.json();
     newsDataArray = myJson.articles;
-    // console.log(newsDataArray)
-    // } else {
-
-    // }
     newsDispaly();
 }
 
 const fetchHealthNews = async () => {
     const response = await fetch(helathNews + apiKey);
     newsDataArray = [];
-    // if (response.status >= 200 && response.status < 300) {
     const myJson = await response.json();
     newsDataArray = myJson.articles;
-    // console.log(newsDataArray)
-    // } else {
-
-    // }
     newsDispaly();
 }
 
 const fetchScienceNews = async () => {
     const response = await fetch(scienceNews + apiKey);
     newsDataArray = [];
-    // if (response.status >= 200 && response.status < 300) {
     const myJson = await response.json();
     newsDataArray = myJson.articles;
-    // console.log(newsDataArray)
-    // } else {
-
-    // }
     newsDispaly();
 }
 
 const fetchHeadLinesNews = async () => {
     const response = await fetch(headlineNews + apiKey);
     newsDataArray = [];
-    // if (response.status >= 200 && response.status < 300) {
     const myJson = await response.json();
     newsDataArray = myJson.articles;
-    // console.log(newsDataArray)
-    // } else {
-
-    // }
     newsDispaly();
 }
 
-const fetchSerachNews = async () => {
+const fetchEverythingNews = async () => {
     const response = await fetch(serachNews + apiKey);
     newsDataArray = [];
-    // if (response.status >= 200 && response.status < 300) {
     const myJson = await response.json();
     newsDataArray = myJson.articles;
-    // console.log(newsDataArray)
-    // } else {
-
-    // }
-    // newsDispaly();
+    newsDispaly();
 }
-
-console.log(fetchSerachNews())
 
 
 function newsDispaly() {
     let html = `<div class="row" id="row1">`
 
     newsDataArray.forEach(element => {
-        // console.log(element)
         html += `
         <div class="col-3" id="col1">
             <div>

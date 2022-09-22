@@ -19,7 +19,7 @@
 
     <!-- navbar -->
     <div>
-        <nav class="navbar navbar-expand-lg bg-danger">
+        <nav class="navbar fixed-top navbar-expand-lg bg-danger">
             <div class="container-fluid">
                 <a class="navbar-brand text-dark" href="#">News</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -36,7 +36,7 @@
                             <a class="nav-link text-light" href="#Sport" id="Sport">Sport</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" href="#Tecnology" id="Tecnology">Tecnology</a>
+                            <a class="nav-link text-light" href="#Tecnology" id="Tecnology">Technology</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-light" href="#Entertainment" id="Entertainment">Entertainment</a>
@@ -50,10 +50,13 @@
                         <li class="nav-item">
                             <a class="nav-link text-light" href="#Science" id="Science">Science</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" onclick="foo()" href="#everything"
+                                id="everything">Everything</a>
+                        </li>
                     </ul>
                     <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" id="newsQuery" placeholder="Search news">
-                        <button class="btn btn-outline-warning" type="submit" id="searchBtn">Search</button>
+
                     </form>
                 </div>
             </div>
