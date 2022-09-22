@@ -48,7 +48,7 @@ let everything = document.querySelector("#everything");
 var newsDataArray = [];
 
 // api
-const apiKey = "43fd07be505e4affa0b8ad0a3f3c9035";
+const apiKey = "7d1e172f89824a91bb1f661783e2f044";
 const headlineNews = "https://newsapi.org/v2/top-headlines?country=us&apiKey=";
 const generalNews = "https://newsapi.org/v2/top-headlines?country=us&category=general&apiKey=";
 const bussinesNews = "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey="
